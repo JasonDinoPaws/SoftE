@@ -1,7 +1,8 @@
-upto = int(input("Numbers up to: "))
+upto = int(input("Numbers up to: ")) 
 nums = [x+1 for x in range(upto)]
 ded = [1]
 
+# Prints out everynumber and colors them if they are not prime numbers
 def Printallnums():
     for x in nums:
         c = 1
@@ -14,19 +15,27 @@ def Printallnums():
         if x%10 == 0:
             print()
 
+# Goes up until it hits the upto value
 for num in range(upto):
     n = num+1
+
+    # if the number is already not a prime number skip it
     if n in ded:
         continue
+
+    # if the number times it self is bigger than upto then break
     elif n*n > upto:
         break
 
+    # Loops threw all numbers starting from 1 off of n and checks if that number modulus n is 0
     for n2 in nums[num+1:]:
         if n2%n == 0:
             ded.append(n2)
+
     Printallnums()
     print("\n")
 
+# Prints all prime numbers that are not already declared as prime number
 print("all prime numbers")
 for x in nums:
     if not x in ded:
