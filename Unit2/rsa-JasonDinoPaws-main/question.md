@@ -1,0 +1,2 @@
+## How are governments and companies currently preparing for "the quantum apocalpyse"?
+As we continue to move through time, we are getting closer to the quantum apocalpyse funded by goverments made by companies. When this inevitable happends and anything is now unencrypted, what are the goverments and compines doing to prepare for this date.? Well with the limited amount of qubits we currently have, the first thing they are doing in making new encryption algarithms that are super complex in order slow down the crackability. 
