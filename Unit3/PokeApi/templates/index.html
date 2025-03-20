@@ -1,0 +1,65 @@
+<head>
+    <style>
+         @font-face { font-family: Pokemon; src: url('pokemon.ttf'); } 
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+            position: absolute;
+        }
+        p {
+            font-family: Pokemon; 
+            color: white;
+
+        }
+        input {
+            font-family: Pokemon; 
+            color: white;
+            outline: black;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="Props" style="float: left;position: absolute;left: 5;top: 5;"></div>
+
+    <img id = "img" src = "{{ url_for('pokemon') }}" style="width: 498;height: 909;position: absolute;left: 25%;">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        // const Stats = document.getElementById("Stats")
+        const Props = document.getElementById("Props")
+        const Img = document.getElementById("img")
+
+        function UpdateProp(Prop)
+        {
+            $.getJSON("/"+Prop+"/"+document.getElementById(Prop).value,function(data){
+                console.log(data)
+                Stats.innerHTML = ""
+            });
+        }
+
+        const inputs = {"Number": "Any Number","R":"(0,1,2)","G":"(0,1,2)","B":"(0,1,2)"};
+        for (const key in inputs) {
+            div = document.createElement("div")
+
+            p = document.createElement("p")
+            p.innerHTML = key
+            p.style = "height: 7;"
+
+            input = document.createElement("input")
+            input.type = "text"
+            input.style = "width: 100%;"
+            input.placeholder = inputs[key]
+            input.id = key
+            input.onblur = UpdateProp.bind(null,key)
+
+            div.append(p)
+            div.append(input)
+            Props.append(div)
+        };
+    </script>
+</body>
